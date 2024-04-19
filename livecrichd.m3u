@@ -1,0 +1,40 @@
+Telegram - @livecrichdd
+
+#EXTINF:-1 tvg-id="Toxic78" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-8301-j7hc0820-v1/imageContent-8301-j7hc0820-m1.png" group-title="TOXIC | Sports", Star Sports 1 HD
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=06341bf3dd635e6ca5c71188d0210373:874b3892427926185fdb3c50800e8c2d
+https://toxicify.pro/peace/kfc/78.mpd
+
+#EXTINF:-1 tvg-id="Toxic235" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-1021-j5nj3c68-v1/imageContent-1021-j5nj3c68-m1.png" group-title="TOXIC | Sports", Star Sports 2 HD
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=bc5ea952698553daaba85787001d6093:75156dc223506239f78dbc9da4ce864a
+https://toxicify.pro/peace/kfc/235.mpd
+
+#EXTINF:-1 tvg-id="Toxic24" tvg-logo="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-60-j5fdr6a0-v1/imageContent-60-j5fdr6a0-m1.png" group-title="TOXIC | Sports", Star Sports 1 Hindi HD
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=e16192ae327c554a8f73a5bcc3bfbd6f:1b52f561f3636356824a62034bbb2d39
+https://toxicify.pro/peace/kfc/24.mpd
+
+#EXTM3U
+#EXT-X-TARGETDURATION:8
+#EXT-X-VERSION:3
+#EXT-X-MEDIA-SEQUENCE:21457
+#EXT-X-ALLOW-CACHE:YES
+#EXT-X-PROGRAM-DATE-TIME:2023-06-07T03:56:28Z
+#EXTINF:7.920,
+http://line.greatstar.me/play/live.php?mac=00:1A:79:8d:08:8c&stream=1104678&extension=ts&play_token=p7SSGZMuoA
+#EXTINF:8.000,
+http://line.greatstar.me/play/live.php?mac=00:1A:79:8d:08:8c&stream=1104678&extension=ts&play_token=p7SSGZMuoA
+#EXTINF:8.000,
+http://line.greatstar.me/play/live.php?mac=00:1A:79:8d:08:8c&stream=1104678&extension=ts&play_token=p7SSGZMuoA
+#EXTINF:8.000,
+http://line.greatstar.me/play/live.php?mac=00:1A:79:8d:08:8c&stream=1104678&extension=ts&play_token=p7SSGZMuoA
