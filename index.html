@@ -1,37 +1,65 @@
-<html>
+
+
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Telegram-Live-Cric-Hd</title>
-<link rel="stylesheet" type="text/css" href="/clap.css"/>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
-<link rel="icon" href="https://amzstream.tv/images/favicon.ico"/>
-<link rel="shortcut icon" href="https://amzstream.tv/images/favicon.ico"/>
-<style>body { background-color: #000000; }</style>
+<meta name="robots" content="noindex" />
+<style type="text/css">
+
+body {
+   margin: 0;
+   padding: 0;
+}
+</style>
 </head>
-    <body>
-        <div id="player"></div>
-        <script>
-            var player = new Clappr.Player({
-            source: 'https://toxicify.pro/toxic/stream.m3u8?id=3951055',
-            width: '100%',
-            height: 'auto',
-            autoPlay: true,
-            plugins: [HlsjsPlayback, LevelSelector],
-            mimeType: "application/x-mpegURL",
-            mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-            parentId: "#player",
-        });
+<script type="text/javascript">
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\[").replace(/[\]]/, "\]");
+	var regex = new RegExp("[\?&]" + name + "=([^&#]*)"),
+	results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 
-            if(confirm("Join Our Telegram Channel @livecrichdd For More Links")) { window.location.href = "https://t.me/livecrichdd" }
-        </script>
-    </body>
+var getURL = getParameterByName('get');
+    var getURL = getParameterByName('get');
+    var getIMG = getParameterByName('img');
 
+    if (getIMG) {
+        getIMG = atob(getIMG);
+    }
+var getKEY  = getParameterByName('key');
+var getKEY2  = getParameterByName('key2');
+if (getURL == "#") {alert('Vuelve a la página anterior');}
+</script>
+<script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+<script> jwplayer.key='XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';</script>
+<div id="player"></div>
+<script type="text/javascript">
+var playerInstance=jwplayer("player");
 
-  </body>
+playerInstance.setup({
 
-</body>
+    playlist: [{
+    "title": "Live Cric Hd|Peacock TV",
+    "description": "Peacock TV",
+    "image": getIMG,
+      "sources": [
+        {
+          "default": false,
+          "type": "dash",
+          "file": getURL,
+          "drm": {
+            "clearkey": {"keyId": getKEY, "key": getKEY2}
+          },
+          "label": "0"
+        }
+      ]
+    }],
+    width: "100%",
+    height: "100%",
+    aspectratio: "16:9",
+    autostart: false,
+    cast: {},
+    sharing: {}
+});
+</script>
 </html>
-
