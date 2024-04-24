@@ -1,54 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Are You</title>
-<link rel="stylesheet" type="text/css" href="clap.css">
-<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
-<link rel="icon" href="https://www.sonyliv.com/assets/favicon.png"/>
-<link rel="shortcut icon" href="https://www.sonyliv.com/assets/favicon.png"/>
-
-<style>
-    html, body {
-        margin: 0;
-        height: 100%;
-        overflow: hidden;
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Sports Hindi</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
     }
-
-    #player-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black; /* set a background color to cover any space not occupied by the video */
-    }
-
-    #player {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* This will make the video fill the container and zoom to fit */
-    }
-</style>
-
+  </style>
 </head>
 <body>
-<div id="player-container">
-    <div id="player"></div>
-</div>
-<script>
-    var player = new Clappr.Player({
-        source: 'https://dai.google.com/linear/hls/event/NXswIDeAQxuGipcRN1gx3g/master.m3u8',
-        width: '100%',
-        height: '100%',
-        autoPlay: true,
-        plugins: [HlsjsPlayback, LevelSelector],
-        mimeType: "application/x-mpegURL",
-        mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-        parentId: "#player",
-    });
-</script>
+  <div id="video"></div>
+  <div id="buttons" style="background-color: #0074d9; text-align: center; padding: 10px;">
+    <button id="fitButton" style="background-color: #fff; color: #0074d9; border: 2px solid #0074d9; padding: 5px 10px; margin-right: 10px;">Fit Screen</button>
+    <button id="fillButton" style="background-color: #fff; color: #0074d9; border: 2px solid #0074d9; padding: 5px 10px; margin-right: 10px;">Fill Screen</button>
+    <button id="zoomButton" style="background-color: #fff; color: #0074d9; border: 2px solid #0074d9; padding: 5px 10px;">Zoom Screen</button>
+  </div>
+
+  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+  <script>
+    const videoDiv = document.getElementById("video");
+    const fitButton = document.getElementById("fitButton");
+    const fillButton = document.getElementById("fillButton");
+    const zoomButton = document.getElementById("zoomButton");
+
+    const mpdKey = "836c311dd132a49dbed1049d92800304";
+    const mpdKeyId = "000543c0dc49b43c0e816c2a404249de";
+    const videoFile = "https://linear014-gb-dash1-prd-ll.cdn.skycdp.com/016a/Content/DASH_003_720_30/Live/channel(skysportscricket)/manifest_720.mpd";
+
+    function executeJWPlayerSetup() {
+      let stretchingMode = "uniform";
+
+      function updateStretching(mode) {
+        jwplayer().setStretching(mode);
+      }
+
+      jwplayer("video").setup({
+        width: "100%",
+        height: "100%",
+        autostart: true,
+        mute: false,
+        file: videoFile,
+        aspectratio: "16:9", // Set the aspect ratio (e.g., 16:9)
+        stretching: stretchingMode, // Maintain aspect ratio initially
+        drm: {
+          clearkey: {
+            key: mpdKey,
+            keyId: mpdKeyId
+          }
+        }
+      });
+
+      fitButton.addEventListener("click", function () {
+        updateStretching("uniform");
+      });
+
+      fillButton.addEventListener("click", function () {
+        updateStretching("fill");
+      });
+
+      zoomButton.addEventListener("click", function () {
+        updateStretching("exactfit");
+      });
+    }
+
+    executeJWPlayerSetup();
+  </script>
 </body>
 </html>
