@@ -17,19 +17,27 @@
         overflow: hidden;
     }
 
-    #player {
-        position: absolute;
+    #player-container {
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: contain; /* This will fit the video while preserving its aspect ratio */
+        background-color: black; /* set a background color to cover any space not occupied by the video */
+    }
+
+    #player {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This will make the video fill the container and zoom to fit */
     }
 </style>
 
 </head>
 <body>
-<div id="player"></div>
+<div id="player-container">
+    <div id="player"></div>
+</div>
 <script>
     var player = new Clappr.Player({
         source: 'https://dai.google.com/linear/hls/event/NXswIDeAQxuGipcRN1gx3g/master.m3u8',
