@@ -1,64 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Starnsbsbsbsbs</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Are You</title>
+<link rel="stylesheet" type="text/css" href="clap.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+<link rel="icon" href="https://www.sonyliv.com/assets/favicon.png"/>
+<link rel="shortcut icon" href="https://www.sonyliv.com/assets/favicon.png"/>
+
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
     }
-  </style>
+
+    #player-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 56.25vw; /* 16:9 aspect ratio */
+        max-height: 100vh; /* Ensure the height does not exceed the viewport height */
+        background-color: black; /* set a background color to cover any space not occupied by the video */
+    }
+
+    #player {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This will make the video fill the container and zoom to fit */
+    }
+</style>
+
 </head>
 <body>
-  <div id="video"></div>
-
-  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-  <script>
-    const videoDiv = document.getElementById("video");
-
-    const mpdKey = "aa548c9e2a24dd9cfda694a89c4b8dce";
-    const mpdKeyId = "0005cd7d2b9121a3c8586709d03f0e16";
-    const videoFile = "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd";
-
-    function executeJWPlayerSetup() {
-      jwplayer("video").setup({
-        width: "100%",
-        height: "100%",
-        autostart: true,
-        mute: false,
-        file: videoFile,
-        aspectratio: "16:9",
-        drm: {
-          clearkey: {
-            key: mpdKey,
-            keyId: mpdKeyId
-          }
-        },
-        controls: true,
-        displaytitle: false,
-        stretching: "uniform",
-        skin: {
-          name: "seven",
-          active: "#0074d9",
-          inactive: "#ffffff",
-          background: "#000000"
-        },
-        logo: {
-          file: "https://www.jwplayer.com/img/logo.png",
-          position: "top-left"
-        },
-        controlbar: "over",
-        settings: {
-          quality: true,
-          aspectratio: true
-        }
-      });
-    }
-
-    executeJWPlayerSetup();
-  </script>
+<div id="player-container">
+    <div id="player"></div>
+</div>
+<script>
+    var player = new Clappr.Player({
+        source: 'https://dai.google.com/linear/hls/event/NXswIDeAQxuGipcRN1gx3g/master.m3u8',
+        width: '100%',
+        height: '100%',
+        autoPlay: true,
+        plugins: [HlsjsPlayback, LevelSelector],
+        mimeType: "application/x-mpegURL",
+        mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+        parentId: "#player",
+    });
+</script>
 </body>
 </html>
