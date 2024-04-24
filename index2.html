@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Telegram-Live-Cric-Hd</title>
-    <meta charset="UTF-8">
-    <meta name="referrer" content="no-referrer">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body bgcolor="black" style="margin:0">
-  <script>
-      
-      
-                  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const shakaPlayerContainer = document.createElement('div');
   shakaPlayerContainer.setAttribute('data-shaka-player-container', '');
   shakaPlayerContainer.style.width = '100%';
@@ -85,111 +73,25 @@
 
   if (confirm("Join Our Telegram Channel @livecrichdd For More Links")) { window.location.href = "https://telegram.me/livecrichdd" }
 
-  const manifestUri = "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd";
+  const manifestUri = "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd"; // Update with your manifest URI
+  const drmConfig = {
+      "drm": {
+          "clearKeys": {
+'0005cd7d2b9121a3c8586709d03f0e16':'aa548c9e2a24dd9cfda694a89c4b8dce'
+              // Add your clear key configuration here
+          }
+      }
+  };
 
   async function init() {
-            const video = document.getElementById('video');
+      const video = document.getElementById('video');
       const ui = video['ui'];
       const controls = ui.getControls();
       const player = controls.getPlayer();
       window.player = player;
       window.ui = ui;
-      player.configure({
-          drm: {
-              "clearKeys": {
-                  '0005cd7d2b9121a3c8586709d03f0e16': 'aa548c9e2a24dd9cfda694a89c4b8dce'
-              }
-          },
-          streaming: {
-              bufferingGoal: 60,
-              retryParameters: {
-                  maxAttempts: 10,
-                  baseDelay: 500,
-                  backoffFactor: 2,
-                  fuzzFactor: 0.5,
-                  timeout: 30000
-              },
-              rebufferingGoal: 5,
-              preferredAudioLanguage: 'en',
-              restrictions: {
-                  maxHeight: 1080,
-                  maxWidth: 1920,
-                  maxPixels: 2073600,
-                  minBandwidth: 0,
-                  minPixels: 0,
-                  minWidth: 0,
-                  maxFrameRate: 60
-              },
-              abr: {
-                  enabled: true,
-                  defaultBandwidthEstimate: 500000
-              },
-              dash: {
-                  customScheme: function (scheme) { return 'com.example.Scheme'; },
-                  clockSyncUri: 'http://example.com/time.txt'
-              },
-              hls: {
-                  xhrSetup: function (xhr) { xhr.withCredentials = true; },
-                  overrideNative: true
-              },
-              smoothStreaming: {
-                  xhrSetup: function (xhr) { xhr.withCredentials = true; }
-              },
-              lowLatencyMode: false,
-              latencyMultiplier: 2,
-              startAtSegmentBoundary: true,
-              useRelativeCueTimestamps: true,
-              smallGapLimit: 0.5,
-              jumpLargeGaps: false,
-              forceCollapseBuffer: true,
-              stallEnabled: true,
-              stallThreshold: 1.0,
-              stallSkipMode: 'keyframe',
-              stallReportLimit: 10,
-              stallMinDuration: 2.0
-          },
-          manifest: {
-              dash: {
-                  customScheme: function (scheme) { return 'com.example.Scheme'; },
-                  clockSyncUri: 'http://example.com/time.txt'
-              }
-          },
-          preferredAudioLanguage: 'en',
-          preferredTextLanguage: 'en',
-          abr: {
-              enabled: true,
-              switchInterval: 20
-          },
-          playRangeStart: 10,
-          playRangeEnd: 100,
-          textDisplayFactory: function (player) { return new shaka.text.SimpleTextDisplayer(player); },
-          offline: {
-              trackSelectionCallback: function (tracks) { return tracks; }
-          },
-          protectionSystem: 'com.example.MyCustomDrmScheme',
-          logPrefix: '[MyPlayer]',
-          live: {
-              delay: 10,
-              minDrift: -10,
-              maxDrift: 10,
-              accuracy: 2
-          },
-          playRangeStart: 10,
-          playRangeEnd: 100,
-          bufferBehind: 20,
-          bufferingGoal: 30,
-          bufferForPlayback: 25,
-          bufferForPlaybackLong: 40,
-          useRelativeCueTimestamps: true,
-          preferredVariantRole: 'main',
-          preferredAudioChannelCount: 2,
-          preferredAudioCodecs: ['aac'],
-          preferredVideoCodecs: ['avc1'],
-          streaming: {
-              startAtSegmentBoundary: true
-          },
-          stretching: 'exactfit' // Set stretching to 'exactfit' for exact fit
-      });
+      player.configure(drmConfig); // Apply DRM configuration
+      player.configure({ stretching: 'exactfit' }); // Set stretching to 'exactfit' for exact fit
 
       player.addEventListener('error', onPlayerErrorEvent);
       controls.addEventListener('error', onUIErrorEvent);
@@ -221,9 +123,3 @@
   document.addEventListener('shaka-ui-loaded', init);
   document.addEventListener('shaka-ui-load-failed', initFailed);
 });
-
-      
-    
-        </script>
-</body>
-</html>
