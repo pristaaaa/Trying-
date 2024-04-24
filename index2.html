@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Sports Hindi</title>
+  <title>StarHindi</title>
   <style>
     body {
       background-color: #000;
@@ -27,6 +27,7 @@
     const mpdKeyId = "0005cd7d2b9121a3c8586709d03f0e16";
     const telegramLink = "https://t.me/+vi_UBdhOsN5jYzY1";
     const videoFile = "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd";
+    const posterImage = "https://example.com/poster.jpg";
 
     function executeJWPlayerSetup() {
       jwplayer("video").setup({
@@ -36,9 +37,8 @@
         repeat: true,
         volume: 100,
         width: "100%",
-        primary: "html5",
-        hlshtml: true,
         file: videoFile,
+        image: posterImage,
         drm: {
           clearkey: {
             key: mpdKey,
