@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Sony Pal - SonyLIV LiveTV</title>
+<link rel="stylesheet" type="text/css" href="clap.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
+<link rel="icon" href="https://www.sonyliv.com/assets/favicon.png"/>
+<link rel="shortcut icon" href="https://www.sonyliv.com/assets/favicon.png"/>
+</head>
+<body>
+<div id="player" style="height: 100%; width: 100%;"></div>
+<script>
+        var player = new Clappr.Player({
+            source: 'https://prod-sports-south-gm.jiocinema.com/hls/live/2109712/hd_akamai_androidmob_avc_tam_ipl_s1_m1240424/master.m3u8',
+            width: '100%',
+            height: 'auto',
+            autoPlay: true,
+            plugins: [HlsjsPlayback, LevelSelector],
+            mimeType: "application/x-mpegURL",
+            mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+            parentId: "#player",
+        });
+</script>
+</body>
+</html>
