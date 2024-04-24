@@ -15,11 +15,8 @@
       text-align: center;
       padding: 10px;
     }
-    .button {
-      background-color: #fff;
-      color: #0074d9;
-      border: 2px solid #0074d9;
-      padding: 5px 10px;
+    .icon {
+      font-size: 24px;
       margin-right: 10px;
       cursor: pointer;
     }
@@ -28,23 +25,15 @@
 <body>
   <div id="video"></div>
   <div id="buttons">
-    <button class="button" id="fitButton">Fit Screen</button>
-    <button class="button" id="fillButton">Fill Screen</button>
-    <button class="button" id="zoomButton">Zoom Screen</button>
-    <div id="aspectRatioIcons">
-      <span class="button" id="ratio16x9">16:9</span>
-      <span class="button" id="ratio4x3">4:3</span>
-    </div>
+    <span class="icon" id="fitIcon">&#10064;</span>
+    <span class="icon" id="aspectRatioIcon">&#9881;</span>
   </div>
 
   <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
   <script>
     const videoDiv = document.getElementById("video");
-    const fitButton = document.getElementById("fitButton");
-    const fillButton = document.getElementById("fillButton");
-    const zoomButton = document.getElementById("zoomButton");
-    const ratio16x9Button = document.getElementById("ratio16x9");
-    const ratio4x3Button = document.getElementById("ratio4x3");
+    const fitIcon = document.getElementById("fitIcon");
+    const aspectRatioIcon = document.getElementById("aspectRatioIcon");
 
     const mpdKey = "aa548c9e2a24dd9cfda694a89c4b8dce";
     const mpdKeyId = "0005cd7d2b9121a3c8586709d03f0e16";
@@ -73,24 +62,13 @@
         }
       });
 
-      fitButton.addEventListener("click", function () {
+      fitIcon.addEventListener("click", function () {
         updateStretching("uniform");
       });
 
-      fillButton.addEventListener("click", function () {
-        updateStretching("fill");
-      });
-
-      zoomButton.addEventListener("click", function () {
-        updateStretching("exactfit");
-      });
-
-      ratio16x9Button.addEventListener("click", function () {
-        jwplayer().setAspectRatio("16:9");
-      });
-
-      ratio4x3Button.addEventListener("click", function () {
-        jwplayer().setAspectRatio("4:3");
+      aspectRatioIcon.addEventListener("click", function () {
+        // Implement aspect ratio selection functionality here
+        // For example: show a dropdown menu or a modal for selecting aspect ratio
       });
     }
 
