@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   shakaVideo.id = 'video';
   shakaVideo.style.width = '100%';
   shakaVideo.style.height = '100%';
-  shakaVideo.style.objectFit = 'contain'; // Set object-fit to 'contain' for fit
+  shakaVideo.style.objectFit = 'fill'; // Set object-fit to 'contain' for fit
   shakaVideo.className = 'shaka-video';
 
   shakaPlayerContainer.appendChild(shakaVideo);
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const drmConfig = {
       "drm": {
           "clearKeys": {
-              '3b88f2cff3affef20b265c840bafc0cc':'6653c05e42fc4fac8f49d7cbf99498fe'
+              '6653c05e42fc4fac8f49d7cbf99498fe':'3b88f2cff3affef20b265c840bafc0cc'
               // Add your clear key configuration here
           }
       }
