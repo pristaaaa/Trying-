@@ -9,20 +9,38 @@
 <script src="//cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@1.0.1/dist/hlsjs-playback.min.js"></script>
 <link rel="icon" href="https://www.sonyliv.com/assets/favicon.png"/>
 <link rel="shortcut icon" href="https://www.sonyliv.com/assets/favicon.png"/>
+
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* This will fit the video while preserving its aspect ratio */
+    }
+</style>
+
 </head>
-<body style="margin: 0;">
-<div id="player" style="height: 100vh; width: 100vw;"></div>
+<body>
+<div id="player"></div>
 <script>
-        var player = new Clappr.Player({
-            source: 'https://dai.google.com/linear/hls/event/NXswIDeAQxuGipcRN1gx3g/master.m3u8',
-            width: '100%',
-            height: '100%',
-            autoPlay: true,
-            plugins: [HlsjsPlayback, LevelSelector],
-            mimeType: "application/x-mpegURL",
-            mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-            parentId: "#player",
-        });
+    var player = new Clappr.Player({
+        source: 'https://dai.google.com/linear/hls/event/NXswIDeAQxuGipcRN1gx3g/master.m3u8',
+        width: '100%',
+        height: '100%',
+        autoPlay: true,
+        plugins: [HlsjsPlayback, LevelSelector],
+        mimeType: "application/x-mpegURL",
+        mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+        parentId: "#player",
+    });
 </script>
 </body>
 </html>
