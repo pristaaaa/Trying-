@@ -9,7 +9,8 @@
 <body bgcolor="black" style="margin:0">
   <script>
       
-      document.addEventListener('DOMContentLoaded', function () {
+      
+                  document.addEventListener('DOMContentLoaded', function () {
   const shakaPlayerContainer = document.createElement('div');
   shakaPlayerContainer.setAttribute('data-shaka-player-container', '');
   shakaPlayerContainer.style.width = '100%';
@@ -25,6 +26,7 @@
   shakaVideo.id = 'video';
   shakaVideo.style.width = '100%';
   shakaVideo.style.height = '100%';
+  shakaVideo.style.objectFit = 'cover'; // Set object-fit to 'cover' for exact fit
   shakaVideo.className = 'shaka-video';
 
   shakaPlayerContainer.appendChild(shakaVideo);
@@ -86,7 +88,7 @@
   const manifestUri = "https://linear007-gb-dash1-prd-ak.cdn.skycdp.com/016a/Content/DASH_003_720_120/Live/channel(skysportscricket)/manifest_720-120.mpd";
 
   async function init() {
-      const video = document.getElementById('video');
+            const video = document.getElementById('video');
       const ui = video['ui'];
       const controls = ui.getControls();
       const player = controls.getPlayer();
@@ -186,7 +188,7 @@
           streaming: {
               startAtSegmentBoundary: true
           },
-          stretching: 'exactfit'
+          stretching: 'exactfit' // Set stretching to 'exactfit' for exact fit
       });
 
       player.addEventListener('error', onPlayerErrorEvent);
@@ -219,6 +221,8 @@
   document.addEventListener('shaka-ui-loaded', init);
   document.addEventListener('shaka-ui-load-failed', initFailed);
 });
+
+      
     
         </script>
 </body>
