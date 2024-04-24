@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How Are You</title>
 <link rel="stylesheet" type="text/css" href="clap.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
@@ -8,8 +10,8 @@
 <link rel="icon" href="https://www.sonyliv.com/assets/favicon.png"/>
 <link rel="shortcut icon" href="https://www.sonyliv.com/assets/favicon.png"/>
 </head>
-<body>
-<div id="player" style="height: 100%; width: 100%;"></div>
+<body style="margin: 0;">
+<div id="player" style="height: 100vh; width: 100vw;"></div>
 <script>
         var player = new Clappr.Player({
             source: 'https://dai.google.com/linear/hls/event/NXswIDeAQxuGipcRN1gx3g/master.m3u8',
